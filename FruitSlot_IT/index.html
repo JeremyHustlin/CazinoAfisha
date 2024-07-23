@@ -1,0 +1,1886 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="max-image-preview:large" name="robots">
+<meta content="WordPress 6.4.2" name="generator">
+<meta content="Elementor 3.18.3; features: e_dom_optimization, e_optimized_assets_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-auto" name="generator">
+<meta content="3" name="numberOfItems">
+<meta content="Ascending" name="itemListOrder">
+<meta content="1" itemprop="position">
+<meta content="2" itemprop="position">
+<title>StartliteFruits</title>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+
+    <style>
+         @font-face {
+            font-family: 'AllerDisplay';
+            src: url("fonts/AllerDisplay.ttf");
+            font-weight: bold;
+            font-style: normal
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'AllerDisplay';
+            background-image: url('images/background.jpg');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .popup__open {
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            line-height: 1;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            padding: 35px 0 0;
+        }
+
+        .header__content {
+            text-align: center;
+        }
+
+        .header__content h1 {
+            font-size: 72px;
+            color: #000000;
+            text-shadow: 0px 0px 28.2px rgba(254, 208, 71);
+        }
+
+        .header__content p {
+            font-size: 38px;
+            color: #000000;
+        }
+
+        .header__content p > span {
+            color: #fdfa02;
+        }
+
+        .main {
+            display: flex;
+            margin: 10px auto 80px;
+            overflow: hidden;
+            z-index: 4;
+        }
+
+        .game canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .game__content {
+            position: relative;
+            width: 100%;
+            max-width: 840px;
+            height: 768px;
+            margin: 0 auto;
+        }
+
+        .game__wrap {
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            max-width: 668px;
+            max-height: 595px;
+            top: 87px;
+            left: 85px;
+            overflow: hidden;
+        }
+
+        .game__liner {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .game__logo {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .game__liner.show {
+            animation: lineAnimation 0.9s infinite;
+        }
+
+        .game__liner img,
+        .game__logo img {
+            max-width: 100%;
+            height: 100%;
+        }
+
+        .game__slots {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 720px;
+            display: flex;
+        }
+
+        .game__slot {
+            position: absolute;
+            bottom: 0;
+            width: 33%;
+            background-repeat: repeat-y;
+            background-position: 0 0;
+            left: -4px;
+            background-position: center 0;
+            background-size: auto 1960px;
+            background-repeat: repeat-y;
+        }
+
+        .game__slot.slot__second {
+            left: 33.33%;
+        }
+
+        .game__slot.slot__third {
+            left: 66.66%;
+        }
+
+        .game__slot .slot__img {
+            position: absolute;
+            width: 100%;
+        }
+
+        .game__slot .slot__img .filter {
+            -webkit-animation: filterAnimate 0.9s infinite;
+        }
+
+        @keyframes filterAnimate { 
+            0%, 100% {
+                -webkit-filter: drop-shadow(0 0 0 #00e113);
+                filter: drop-shadow(0 0 0 #00e113);
+            }
+
+            50% {
+                -webkit-filter: drop-shadow(0 0 14px #00e113);
+                filter: drop-shadow(0 0 14px #00e113);
+            }
+        }
+
+        .game__slot img {
+            display: block;
+            margin: 0 auto;
+            max-height: 100%;
+            max-width: 90%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes lineAnimation { 
+            0%, 100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .game__stop {
+            position: absolute;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -125px auto 0;
+            width: 100%;
+            height: 100%;
+            max-width: 384px;
+            max-height: 134px;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .game__stop img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .game__stop .game__btn_hover {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .game__stop:hover .game__btn_hover {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            margin: auto 0 15px;
+        }
+
+        .footer__terms a {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .popup {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: all 0.3s ease-out;
+            z-index: 999;
+        }
+
+        .popup .popup__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            background-image: url('images/popup.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 840px;
+            width: 100%;
+            height: 100%;
+            max-height: 768px;
+            -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.7);
+            transform: scale(0.7);
+            opacity: 0;
+            -webkit-transition: all 0.4s;
+            transition: all 0.4s;
+            overflow: hidden;
+        }
+
+        .popup.show {
+            visibility: visible;
+        }
+
+        .popup.show .popup__content {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .popup .popup__item {
+            width: 100%;
+            height: 100%;
+            max-width: 415px;
+            max-height: 560px;
+            margin: auto;
+        }
+
+        .popup .popup__item h3 {
+            color: #000000;
+            font-size: 42px;
+            text-shadow: 0px 0px 19.2px rgba(254, 208, 71);
+            text-align: center;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        .popup .popup__item h4 {
+            color: #000000;
+            font-size: 28px;
+            margin: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .popup .popup__item h1 {
+            font-size: 90px;
+            line-height: 70px;
+            color: #fdfa02;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .popup .popup__item h1 br {
+            display: block;
+        }
+
+        .popup .popup__item h1 > span {
+            font-size: 56px;
+        }
+
+        .popup .popup__item h2 {
+            font-size: 38px;
+            color: #000000;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .popup .popup__item p {
+            font-size: 24px;
+            text-align: center;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        .popup .popup__btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            max-width: 384px;
+            max-height: 134px;
+            cursor: pointer;
+        }
+
+        .popup__winner .popup__btn {
+            margin: 30px auto 0;
+        }
+
+        .popup__winner .popup__item h3 {
+            margin-top: 35px;
+        }
+
+        .popup .popup__btn img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            transition: all 0.3s;
+        }
+
+        .popup .popup__btn .popup__btn_hover {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .popup .popup__btn:hover .popup__btn_hover {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .popup .popup__text {
+            margin: 20px 0 0;
+        }
+
+        .popup .popup__text_answer {
+            margin: 35px 0 50px;
+        }
+
+        .popup .popup__question {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup .popup__answers {
+            display: flex;
+            flex-direction: column;
+            grid-row-gap: 12px;
+            width: 100%;
+            max-width: 92%;
+            margin: 0 auto;
+        }
+
+        .popup .popup__answers .btn--answer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            border-radius: 24px;
+            font-size: 26px;
+            text-align: center;
+            color: #fdfa02;
+            text-transform: uppercase;
+            background: #000000;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .popup .popup__question:nth-child(3) .popup__answers .btn--answer:nth-child(2) {
+            font-size: 20px;
+        }
+
+        .popup .popup__answers .btn--answer:hover {
+            background: #fdfa02;
+            color: #000000;
+        }
+
+        br {
+            display: none;
+        }
+
+        @media(min-width: 768px) and (max-width: 990px) {
+            .header__content h1 {
+                font-size: 46px;
+            }
+            .header__content p {
+                font-size: 28px;
+            }
+            .game__content {
+                height: 600px;
+            }
+            .game__wrap {
+                max-width: 521px;
+                max-height: 465px;
+                top: 68px;
+                left: 67px;
+            }
+            .game__stop {
+                margin: -112px auto 0;
+            }
+            .game__slots {
+                height: 580px;
+            }
+        }
+
+        @media(max-width: 767px) {
+            .header {
+                padding: 25px 0 0;
+            }
+            .main {
+                margin: 20px auto 180px;
+            }
+            .game {
+                max-width: 411px;
+                min-width: 411px;
+                width: -webkit-fill-available;
+                width: -moz-available;
+                margin: 0 -18px;
+            }
+            .game__wrap {
+                height: 294px;
+                max-width: 328px;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 40px;
+            }
+            .game__slots {
+                height: 360px;
+            }
+            .game__content {
+                height: 376px;
+            }
+            .game__stop {
+                margin: -25px auto 0;
+                max-width: 270px;
+                max-height: 90px;
+            }
+            .game canvas {
+                height: 376px;
+            }
+            br {
+                display: block;
+            }
+            .header__content h1 {
+                font-size: 36px;
+            }
+            .header__content p {
+                font-size: 22px;
+                margin-top: 5px;
+            }
+            .popup .popup__content {
+                max-height: 526px;
+            }
+            .popup .popup__item h1 {
+                font-size: 60px;
+                line-height: 46px;
+            }
+            .popup .popup__item h1 > span {
+                font-size: 38px;
+            }
+            .popup .popup__item h3 {
+                font-size: 28px;
+            }
+            .popup .popup__item h2 {
+                font-size: 26px;
+                margin-top: 10px;
+            }
+            .popup .popup__text {
+                margin: 10px 0 0;
+            }
+            .popup .popup__item h4 {
+                font-size: 20px;
+                margin: 5px 0;
+            }
+            .popup .popup__item p {
+                font-size: 18px;
+            }
+            .popup .popup__item {
+                max-height: 400px;
+                max-width: 305px;
+            }
+            .popup .popup__btn {
+                max-width: 270px;
+                max-height: 90px;
+                margin: -5px auto 0;
+            }
+            .popup .popup__text_answer {
+                margin: 30px 0 35px;
+            }
+            .popup .popup__answers {
+                grid-row-gap: 8px;
+            }
+            .popup .popup__answers .btn--answer {
+                height: 36px;
+                font-size: 18px;
+            }
+            .popup .popup__question:nth-child(3) .popup__answers .btn--answer:nth-child(2) {
+                font-size: 15px;
+            }
+            .popup__winner .popup__item h3 {
+                margin-top: 25px;
+            }
+            .popup__winner .popup__btn {
+                margin: 10px auto 0;
+            }
+            .popup__winner .popup__item h4 {
+                margin: 10px 0;
+            }
+            .footer__terms a {
+                font-size: 14px;
+            }
+        }
+
+        @media(min-width: 390px) and (max-width: 767px) {
+            .header__content h1 {
+                font-size: 38px;
+            }
+            .header__content p {
+                font-size: 24px;
+            }
+        }
+
+        @media(min-width: 320px) and (max-width: 360px) {
+            .game {
+                max-width: 390px;
+                min-width: 390px;
+                margin: 0 -15px;
+            }
+            .game__wrap {
+                max-width: 310px;
+            }
+            .game__stop {
+                max-width: 256px;
+            }
+        }
+
+        @media(max-width: 320px) {
+            .header__content h1 {
+                font-size: 32px;
+            }
+            .header__content p {
+                font-size: 18px;
+            }
+            .game {
+                max-width: 346px;
+                min-width: 346px;
+                margin: 0 -13px;
+            }
+            .game__wrap {
+                height: 271px;
+                max-width: 278px;
+            }
+            .game__stop {
+                max-width: 238px;
+                margin: -16px auto 0;
+            }
+            .game canvas {
+                height: 350px;
+            }
+            .game__content {
+                height: 350px;
+            }
+            .game__slots {
+                height: 340px;
+            }
+        }
+
+        /* gift box */
+
+        .container__fluid {
+            display: flex;
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .gift__box {
+            position: fixed;
+            bottom: 0;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            margin: 0 15px;
+        }
+
+        .gift__box .gift__content {
+            position: relative;
+            bottom: 15px;
+            display: flex;
+            justify-content: flex-end;
+            width: 95px;
+            height: 78px;
+            margin-left: auto;
+        }
+
+        .gift__box.show {
+            z-index: 5;
+        }
+
+        .gift__box.show .gift__content::after {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .gift__box.show .gift__content .btn__box {
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gift__box.hide .gift__content {
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gift__box .gift__content::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 84px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgb(58, 58, 58);
+            z-index: -1;
+        }
+
+        .gift__box .btn__box {
+            position: absolute;
+            right: 0;
+            margin-left: auto;
+            bottom: 3px;
+            width: 95px;
+            height: 95px;
+            border-radius: 0;
+            box-shadow: none;
+            cursor: pointer;
+            transition: .15s;
+            animation: shakeIt 3s linear infinite;
+            z-index: 1;
+        }
+
+        .gift__box .btn__box img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            transition: 0.3s;
+        }
+
+        .gift__box .btn__box .box__opened {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .gift__box .btn__box:hover .box__closed {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .gift__box .btn__box:hover .box__opened {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        @-webkit-keyframes shakeIt {
+            0% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            80% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            83% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            87% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            90% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            93% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            98% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 100%;
+            }
+        }
+
+        @-moz-keyframes shakeIt {
+            0% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            80% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            83% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            87% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            90% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            93% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            98% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 100%;
+            }
+        }
+
+        @-o-keyframes shakeIt {
+            0% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            80% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            83% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            87% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            90% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            93% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            98% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 100%;
+            }
+        }
+
+        @keyframes shakeIt {
+            0% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            80% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            83% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            87% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            90% {
+                transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+            93% {
+                transform: rotate(10deg);
+                transform-origin: 50% 100%;
+            }
+            98% {
+                transform: rotate(-10deg);
+                transform-origin: 50% 100%;
+            }
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 100%;
+            }
+        }
+
+        .popup__gift {
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            bottom: -15px;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+            transition: 0.3s;
+        }
+
+        .bg__overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(25, 25, 25, 0.7);
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bg__overlay.show {
+            opacity: 1;
+            z-index: 4;
+            overflow: visible;
+        }
+
+        .popup__gift.show {
+            opacity: 1;
+            overflow: visible;
+            z-index: 2;
+        }
+
+        .popup__gift.show .popup__content {
+            transform: translateY(0);
+            animation: slide-modal-in 0.3s ease forwards;
+        }
+
+        .popup__gift .close {
+            display: flex;
+            cursor: pointer;
+        }
+
+        .popup__gift .popup__content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            padding: 30px 0;
+            width: 408px;
+            height: 612px;
+            background-color: #ffffff;
+            transform: translateY(100%);
+            animation: slide-modal-out 0.3s ease forwards;
+        }
+
+        .popup__gift .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+        }
+
+        .popup__gift .img-fluid {
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+        .popup__gift .popup__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 320px;
+            width: 80%;
+            height: 64px;
+            margin: 20px 30px 0;
+            border-width: 1px;
+            border-color: rgb(65, 65, 66);
+            border-style: solid;
+            border-radius: 6px;
+            background-color: rgb(255, 242, 0);
+            color: rgb(0, 0, 0);
+            font-size: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .popup__gift .popup__timer {
+            display: flex;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .popup__gift .popup__timer #minutes {
+            margin-left: 3px;
+        }
+        
+        .popup__gift .popup__timer > input {
+            border: none;
+            width: 17px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        @keyframes slide-modal-in {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-modal-out {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @media(min-width: 768px) and (max-width: 1439.98px) {
+            .popup__gift {
+                right: 100%;
+                transform: translateX(27%);
+            }
+        }
+
+        @media(max-width: 767px) {
+            .popup__gift {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: flex-end;
+            }
+            .popup__gift .popup__content {
+                max-width: 408px;
+                width: -webkit-fill-available;
+                width: -moz-available;
+                margin: 0 15px;
+                height: 550px;
+            }
+            .gift__box .btn__box {
+                width: 68px;
+                height: 68px;
+            }
+            .gift__box .btn__box::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 11px;
+                width: 68px;
+                height: 68px;
+                border-radius: 50%;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 1px 0px 16px rgb(0 0 0 / 50%);
+            }
+            .gift__box .gift__content::after {
+                display: none;
+            }
+            .popup__gift .popup__link {
+                font-size: 26px;
+            }
+        }
+
+        @media(max-width: 320px) {
+            .popup__gift .popup__content {
+                height: 480px;
+            }
+            .popup__gift .img-fluid {
+                width: 90%;
+            }
+            .popup__gift .popup__link {
+                height: 56px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="header">
+        <div class="container">
+            <div class="header__content">
+                <h1>SBLOCCA UN'OFFERTA ESCLUSIVA</h1>
+                <p>PREMI IL PULSANTE <span>“STOP”</span> PER VEDERE SE HAI VINCITO!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="container">
+            <div class="game">
+                <div class="game__content">
+                    <canvas id="canvas" class="game__glow" width="840" height="768"></canvas>
+                    <div class="game__liner"><img src="images/winline_it.png" alt=""></div>
+                    <div class="game__logo"><img src="images/reels_logo_.png" alt=""></div>
+                    <div class="game__wrap">
+                        <div class="game__slots">
+                            <div class="game__slot slot__first" style="transform: translateY(552px);"><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 0px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 400px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 800px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1800px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2000px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2800px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3000px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3400px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3600px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3800px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4600px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4800px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5000px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5200px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5400px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5600px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5800px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6000px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6400px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7000px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7400px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7600px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7800px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8000px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8200px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8400px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8600px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8800px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9200px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9600px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10000px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10400px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10600px;"><img src="images/sym_wild.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10800px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11000px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11200px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11400px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11600px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11800px;"><img src="images/sym_6.png"></div></div>
+                            <div class="game__slot slot__second" style="transform: translateY(552px);"><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 0px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 200px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 400px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1400px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1600px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1800px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2000px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2200px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2600px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2800px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3000px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3200px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3400px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3600px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3800px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4000px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4200px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4600px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4800px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5400px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6000px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6200px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7200px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7400px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7600px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7800px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8400px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8600px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8800px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9000px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9400px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9800px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10400px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10800px;"><img src="images/sym_wild.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11000px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11200px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11400px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11800px;"><img src="images/sym_5.png"></div></div>
+                            <div class="game__slot slot__third" style="transform: translateY(552px);"><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 0px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 400px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 600px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 800px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1000px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1200px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1400px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 1800px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2200px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 2800px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3200px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3600px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 3800px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4200px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4400px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 4800px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5200px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 5800px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6000px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6400px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 6800px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7000px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7200px;"><img src="images/sym_4.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7400px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 7800px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8000px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8200px;"><img src="images/sym_wild.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8400px;"><img src="images/sym_wild.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8600px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 8800px;"><img src="images/sym_1.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9000px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9200px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9400px;"><img src="images/sym_7.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 9800px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10000px;"><img src="images/sym_2_win.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10200px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10600px;"><img src="images/sym_5.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 10800px;"><img src="images/sym_2.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11000px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11200px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11400px;"><img src="images/sym_3.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11600px;"><img src="images/sym_6.png"></div><div class="slot__img" style="height: 200px; line-height: 200px; bottom: 11800px;"><img src="images/sym_2_win.png"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="stop" class="game__stop" type="button">
+                    <img class="game__btn" src="images/button_normal_stop.png" alt="">
+                    <img class="game__btn_hover" src="images/button_hover_stop.png" alt="">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__terms">
+                <a href="https://www.google.com/" target="_blank">Terms &amp; Conditions</a>
+                <span>|</span>
+                <a href="https://www.google.com/" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup popup__congrats">
+        <div class="popup__content">
+            <div class="popup__item">
+                <h3>CONGRATULAZIONI!</h3>
+                <h4>HAI VINTO</h4>
+                <h1>500€ <br> <span>+ 25 Giri Gratis</span></h1>
+                <h2>bonus di benvenuto</h2>
+                <div class="popup__text">
+                    <p>RISPONDI A 3 DOMANDE VELOCI</p>
+                    <p>PER RICHIEDERE IL TUO PREMIO</p>
+                </div>
+                <button class="popup__btn btn__next" type="button">
+                    <img src="images/button_normal_partiora_it.png" alt="">
+                    <img class="popup__btn_hover" src="images/button_hover_partiora_it.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup__answers">
+        <div class="popup__content">
+            <div class="popup__item">
+                <div class="popup__question" id="question-1">
+                    <h3>DOMANDA 1</h3>
+                    <div class="popup__text_answer">
+                        <p>QUANTO SPESSO GIOCHI AI GIOCHI DEL CASINÒ?</p>
+                    </div>
+                    <ul class="popup__answers">
+                        <li class="btn--answer btn--answer-1">QUOTIDIANO</li>
+                        <li class="btn--answer btn--answer-1">SETTIMANALMENTE</li>
+                        <li class="btn--answer btn--answer-1">NON COSÌ SPESSO</li>
+                        <li class="btn--answer btn--answer-1">MAI GIOCATO PRIMA</li>
+                    </ul>
+                </div>
+                <div class="popup__question" id="question-2" style="display: none;">
+                    <h3>DOMANDA 2</h3>
+                    <div class="popup__text_answer">
+                        <p>DOVE GIOCATE NORMALMENTE AI GIOCHI DA CASINÒ?</p>
+                    </div>
+                    <ul class="popup__answers">
+                        <li class="btn--answer btn--answer-2">CASINÒ IN LINEA</li>
+                        <li class="btn--answer btn--answer-2">CASINÒ OFFLINE</li>
+                        <li class="btn--answer btn--answer-2">ENTRAMBI</li>
+                    </ul>
+                    <div class="popup__circles">
+                        <div class="popup__circle"></div>
+                        <div class="popup__circle active"></div>
+                        <div class="popup__circle"></div>
+                    </div>
+                </div>
+                <div class="popup__question" id="question-3" style="display: none;">
+                    <h3>DOMANDA 3</h3>
+                    <div class="popup__text_answer">
+                        <p>A CHE TIPO DI GIOCHI?</p>
+                    </div>
+                    <ul class="popup__answers">
+                        <li class="btn--answer btn--answer-3">SLOT</li>
+                        <li class="btn--answer btn--answer-3">DA TAVOLO E RIVENDITORE DAL VIVO</li>
+                        <li class="btn--answer btn--answer-3">ENTRAMBI</li>
+                        <li class="btn--answer btn--answer-3">ALTRO</li>
+                    </ul>
+                    <div class="popup__circles">
+                        <div class="popup__circle"></div>
+                        <div class="popup__circle"></div>
+                        <div class="popup__circle active"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup__winner">
+        <div class="popup__content">
+            <div class="popup__item">
+                <h3>CONGRATULAZIONI!</h3>
+                <h4>HAI VINTO</h4>
+                <h1>500€ <br> <span>+ 25 Giri Gratis</span></h1>
+                <h2>bonus di benvenuto</h2>
+                <a class="popup__btn btn__claim" href="https://www.google.com/" target="_blank">
+                    <img src="images/button_normal_claim_it.png" alt="">
+                    <img class="popup__btn_hover" src="images/button_hover_claim_it.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- gift__box -->
+
+   
+
+    <div class="bg__overlay"></div>
+
+    <!-- end gift__box -->
+
+    <script src="js/jquery-3.5.1.js"></script>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const CANVAS_WIDTH = canvas.width = 840;
+        const CANVAS_HEIGHT = canvas.height = 768;
+
+        const playerImage = new Image();
+        playerImage.src = 'images/sprite_2lines_nologo.png';
+
+        const spriteWidth = 840;
+        const spriteHeight = 768;
+
+        let playerState = "standby";
+        let gameFrame = 0;
+        let staggerFrames = 4;
+
+        const spriteAnimations = [];
+
+        const animationStates = [
+            {
+                name: 'standby',
+                frames: 1
+            },
+            {
+                name: 'win',
+                frames: 12
+            },
+        ];
+
+        animationStates.forEach((state, index) => {
+            let frames = {
+                loc: [],
+            }
+            for (let j = 0; j < state.frames; j++) {
+                let positionX = j * spriteWidth;
+                let positionY = index * spriteHeight;
+                frames.loc.push({x: positionX, y: positionY});
+            }
+            spriteAnimations[state.name] = frames;
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations[playerState].loc.length;
+            let frameX = spriteWidth * position;
+            let frameY = spriteAnimations[playerState].loc[position].y;
+            
+            ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+
+            gameFrame++;
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        var stopBtn = document.getElementById("stop"),
+            body = document.getElementById("body"),
+            slots = document.getElementsByClassName("game__slot"),
+            elems = [];
+
+        var stopBtnPopUp = document.querySelector("#question-3 li");
+
+        elems = Array.prototype.slice.call(slots);
+        var endSlot = !1;
+
+        function $$(e, t) {
+            var o = (t = t || document).querySelectorAll(e);
+            return Array.prototype.slice.call(o)
+        }
+
+        var one = "sym_1.png",
+            book = "sym_6.png",
+            two = "sym_2.png",
+            three = "sym_3.png",
+            four = "sym_4.png",
+            five = "sym_5.png",
+            six = "sym_2_win.png",
+            seven = "sym_7.png",
+            eight = "sym_wild.png",
+            combination = [];
+        combination[0] = [one, two, three, four, book, five, six, seven, eight];
+
+        var lastElements = [
+            [one, two],
+            [three, five],
+            [six, seven],
+            [five, four],
+            [six, two]
+        ];
+
+        function initRulete() {
+            $$(".game__slot").forEach(function (e, t) {
+                e.parentNode.offsetHeight;
+                for (var o = 0; o < 60; o++) {
+                    var s = document.createElement("img"),
+                        n = document.createElement("div");
+                    if (27 == o || 0 == o || 57 == o) var a = combination[0][t];
+                    else if (28 == o || 1 == o || 58 == o) a = combination[0][t + 2];
+                    else if (29 == o || 2 == o || 59 == o) a = combination[0][t + 4];
+                    else {
+                        var i = Math.round(8 * Math.random());
+                        a = combination[0][i]
+                    }
+                    s.src = "images/" + a, n.classList.add("slot__img"),
+                        n.appendChild(s), n.style.height = e.parentNode.offsetHeight / 3.6 + "px",
+                        n.style.lineHeight = e.parentNode.offsetHeight / 3.6 + "px",
+                        e.appendChild(n)
+                }
+            }), posTop(), endPos = 57 * $$(".game__content .slot__second .slot__img")[0].offsetHeight, endPosCenter = 27 * $$(".game__content .slot__second .slot__img")[0].offsetHeight
+        }
+
+        var endPos, endPosCenter, endEndPos, rest, posY = 0, spaadRulete = 12;
+
+        function tempFunc() {
+            posY += parseInt(spaadRulete), endPos < posY && (posY = 0), endSlot || ($$(".game__slot").forEach(function (e, t) {
+                e.style.transform = "translateY(" + posY + "px)"
+            }), 0 < spaadRulete && setTimeout(tempFunc, 12))
+        }
+
+        function posTop() {
+            $$(".game__slot").forEach(function (e, t) {
+                var o = e.parentNode.offsetHeight / 3.6;
+                $$(".slot__img", e).forEach(function (e, t) {
+                    e.style.bottom = o * t + "px"
+                })
+            })
+        }
+
+        function popTimer() {
+            document.body.className += ' ' + 'show';
+        }
+
+        document.body.clientWidth < 600 && (console.log("dddd"), spaadRulete = 4), initRulete(), tempFunc();
+
+        stopBtn.addEventListener('click', function () {
+            endSlot || (endSlot = !0, $$(".game__slots")[0].style.transition = "transform 1.5s ease-out",
+                $$(".game__slots")[0].style.transform = "translateY(" + (4.351 * $$(".game__content .slot__second .slot__img")[0].offsetHeight - posY % $$(".game__content .slot__second .slot__img")[0].offsetHeight) + "px)",
+                $$(".game__slot").forEach(function (e, t) {
+                    e.style.transform = "none", e.style.bottom = -posY + "px";
+                    var o = parseInt(posY / $$(".game__content .slot__second .slot__img")[0].offsetHeight);
+                    if ($$(".slot__img", e)[o + 6].getElementsByTagName("img")[0].src = "images/" + book,
+                        $$(".slot__img", e)[o + 5].getElementsByTagName("img")[0].src = "images/" + lastElements[t][0],
+                        $$(".slot__img", e)[o + 7].getElementsByTagName("img")[0].src = "images/" + lastElements[t][1],
+                        $$(".slot__img", e)[o + 6]) setTimeout(function () { $$(".slot__img", e)[o + 6].getElementsByTagName("img")[0].classList.add("filter")}, 2300);
+                    else {
+                        for (var s = 0; s < 7; s++) {
+                            var n = document.createElement("img"),
+                                a = document.createElement("div"),
+                                i = Math.round(8 * Math.random()),
+                                l = combination[0][i];
+                            n.src = "images/" + l, a.classList.add("slot__img"), a.appendChild(n),
+                                a.style.height = e.parentNode.offsetHeight / 3.6 + "px",
+                                a.style.lineHeight = e.parentNode.offsetHeight / 3.6 + "px", e.appendChild(a)
+                        }
+                        $$(".slot__img", e)[o + 6].getElementsByTagName("img")[0].classList.add("filter"),
+                        $$(".slot__img", e)[o + 6].getElementsByTagName("img")[0].src = "images/" + book,
+                        $$(".slot__img", e)[o + 5].getElementsByTagName("img")[0].src = "images/" + lastElements[t][0],
+                        $$(".slot__img", e)[o + 7].getElementsByTagName("img")[0].src = "images/" + lastElements[t][1],
+                        posTop()
+                    }
+                }));
+            setTimeout(function () { startQuiz(); }, 4e3);
+        });
+
+        function startQuiz() {
+            document.body.className = 'popup__open';
+            $(".popup__congrats").addClass("show");
+
+            $(".btn__next").click(function () {
+                $(".popup__congrats").removeClass("show");
+                $(".popup__answers").addClass("show");
+
+                $(".btn--answer-1").click(function () {
+                    $("#question-1").fadeOut(0);
+                    $("#question-2").fadeIn(500);
+                });
+
+                $(".btn--answer-2").click(function () {
+                    $("#question-2").fadeOut(0);
+                    $("#question-3").fadeIn(500);
+                });
+
+                $(".btn--answer-3").click(function () {
+                    $(".popup__answers ").removeClass("show");
+                    $(".popup__winner").addClass("show"); 
+                    setTimeout(popTimer, 1e3);
+                });
+            });
+        }
+
+        stopBtn.addEventListener("click", function () { 
+            setTimeout(function () {
+                document.getElementsByClassName("game__liner")[0].classList.add("show")
+                playerState = "win";
+            }, 2300)
+        });
+
+    </script>
+
+    <!-- gift__box -->
+    <script>
+        const btnBox = '#btn-box';
+        const btnShowBox = document.querySelector(btnBox);
+        const giftBox = document.querySelector('.gift__box');
+        const popupGift = document.querySelector(".popup__gift");
+        const popupGiftContent = document.querySelector(".popup__gift .popup__content");
+        const btnClose = document.getElementById("close-box");
+        const bgOverlay = document.querySelector('.bg__overlay');
+
+        // timer
+        const minutesEl = document.querySelector('#minutes');
+        const secondsEl = document.querySelector('#seconds');
+
+        let interval;
+        let pause = false;
+        let totalSeconds = 0;
+        let totalSecondsBackup = 0;
+        
+        btnShowBox.addEventListener("click", function() {
+            popupGift.classList.add("show");
+            giftBox.classList.add("show");
+            bgOverlay.classList.add("show");
+
+            const minutes = parseInt(minutesEl.value);
+            const seconds = parseInt(secondsEl.value);
+
+            totalSecondsBackup = totalSeconds = minutes * 60 + seconds;
+
+            if (totalSeconds < 0) {
+                return;
+            }
+
+            startTimer();
+            closePopupGift();
+        });
+
+        popupGiftContent.addEventListener("click", function(e) {
+            e.stopPropagation();
+        });
+
+        btnClose.addEventListener("click", function() {
+            popupGift.classList.remove("show");
+            giftBox.classList.remove("show");
+            bgOverlay.classList.remove("show");
+
+            stopTimer();
+            updateInputs();
+        });
+
+        function closePopupGift() {
+            document.addEventListener("click", (e) => {
+                const isClosePopupGift = e.target.closest(btnBox);
+                if (!isClosePopupGift && popupGift.classList.contains("show")) {
+                    popupGift.classList.remove("show");
+                    giftBox.classList.remove("show");
+                    bgOverlay.classList.remove("show");
+
+                    stopTimer();
+                    updateInputs();
+                };
+            });
+        };
+
+        function startTimer() {
+            interval = setInterval(() => {
+
+                if (pause) return;
+                totalSeconds--;
+                updateInputs();
+
+                if (totalSeconds <= 0) {
+                    stopTimer();
+                    hideBox();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            interval = clearInterval(interval);
+
+            resetTimer();
+        }
+
+        function resetTimer() {
+            totalSeconds = totalSecondsBackup;
+        }
+
+        function hideBox() {
+            popupGift.classList.remove("show");
+            giftBox.classList.remove("show");
+            giftBox.classList.add("hide");
+            bgOverlay.classList.remove("show");
+        }
+
+        function updateInputs() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            minutesEl.value = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.value = seconds < 10 ? "0" + seconds : seconds;
+        }
+    </script>
+    <!-- end gift__box -->
+
+    <script src="js/currency.js"></script>
+    <script src="js/jscripts-public-v15.js"></script>
+
+    <!-- NEW DESIGN -->
+    <style>
+        #exit-pop-container {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+            background: rgba(0, 0, 0, .7);
+            overflow: hidden
+        }
+
+        #exit-pop-container .content-exit_pop .closer {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            cursor: pointer
+        }
+
+        .content-exit_pop {
+            width: 500px;
+            height: 500px;
+            background-color: #2a4853;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .content-exit_pop .item {
+            text-align: center;
+            display: flex;
+            flex-direction: column
+        }
+
+        .content-exit_pop .item h1 {
+            color: #ffd428;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 38px;
+            font-weight: 600
+        }
+
+        .content-exit_pop .item a {
+            color: #000;
+            display: block;
+            min-width: 270px;
+            height: 82px;
+            font-size: 46px;
+            line-height: 82px;
+            padding: 0 20px;
+            background-color: #ffd428;
+            text-decoration: none;
+            margin: 0 auto;
+            font-weight: 600
+        }
+
+        .content-exit_pop .item .img_item {
+            margin: 35px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .content-exit_pop .item .img_item img {
+            max-width: 100%
+        }
+
+        .content-exit_pop .item .img_item .jackpot-item-new {
+            display: flex;
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 42px;
+            font-weight: 700
+        }
+
+        .text-uppercase {
+            text-transform: uppercase
+        }
+
+        @media (max-width:767px) {
+            .content-exit_pop {
+                width: unset;
+                height: 400px;
+                margin: auto 15px
+            }
+
+            .content-exit_pop .item .img_item .jackpot-item-new {
+                color: #fff;
+                bottom: 16px;
+                font-size: 28px
+            }
+
+            .content-exit_pop .item .img_item img {
+                width: 300px
+            }
+
+            .content-exit_pop .item h1 {
+                font-size: 26px;
+                line-height: 32px
+            }
+
+            .content-exit_pop .item a {
+                min-width: 210px;
+                height: 65px;
+                font-size: 30px;
+                line-height: 67px
+            }
+
+            @media (max-width:320px) {
+                .content-exit_pop .item a {
+                    min-width: 210px;
+                    height: 55px;
+                    line-height: 57px;
+                    font-size: 24px;
+                }
+
+                .content-exit_pop {
+                    height: 350px
+                }
+
+                .content-exit_pop .item .img_item img {
+                    width: 250px
+                }
+
+                .content-exit_pop .item .img_item .jackpot-item-new {
+                    bottom: 14px;
+                    font-size: 26px
+                }
+
+                .content-exit_pop .item h1 {
+                    font-size: 22px;
+                    line-height: 28px
+                }
+            }
+        }
+    </style>
+
+    <div id="exit-pop-container">
+        <div class="content-exit_pop">
+            <span class="closer">
+                <img src="images/close_x.png" alt="">
+            </span>
+            <div class="item">
+                <h1>Vuoi avere la possibilità di riscuotere questo premio?</h1>
+                <div class="img_item">
+                    <img src="images/jackpot_.png" alt="">
+                    <div class="jackpot-item-new">
+                        3 Milioni di Euro
+                    </div>
+                </div>
+                <a exit-pop="" class="text-uppercase" href="https://www.google.com/" target="_blank">
+                    SÌ </a>
+            </div>
+        </div>
+    </div>
+    <!-- NEW DESIGN END -->
+
+    <!-- REGULAR EXIT POP SCRIPT -->
+    <script>
+        (function (global) {
+
+            var now = new Date();
+            var minutes = 1;
+            now.setTime(now.getTime() + (minutes * 60 * 1000));
+
+            var browserAgent = window.navigator.userAgent;
+            var samsungBrowser;
+
+
+            if (browserAgent.toLowerCase().indexOf("samsungbrowser") !== -1) {
+                samsungBrowser = true;
+            } else {
+                samsungBrowser = false;
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            global.localStorage.setItem("loadedTimes", 0);
+            global.localStorage.setItem("referrerUrl", global.document.referrer);
+
+            document.cookie = "allow-redirect-exit=false; path=/";
+
+            var stateCount = 1;
+            var loadedTimes = global.localStorage.getItem("loadedTimes");
+            var popUpContainer = document.getElementById("exit-pop-container");
+            var closeExitPopElements = document.querySelectorAll(".closer");
+            var getDevice = {
+                isAndroid: /Android/.test(navigator.userAgent),
+                isCordova: !!window.cordova,
+                isEdge: /Edge/.test(navigator.userAgent),
+                isFirefox: /Firefox/.test(navigator.userAgent),
+                isChrome: /Google Inc/.test(navigator.vendor),
+                isChromeIOS: /CriOS/.test(navigator.userAgent),
+                isChromiumBased: !!window.chrome && !/Edge/.test(navigator.userAgent),
+                isIE: /Trident/.test(navigator.userAgent),
+                isIOS: /(iPhone|iPad|iPod)/.test(navigator.platform),
+                isOpera: /OPR/.test(navigator.userAgent),
+                isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
+                isTouchScreen: ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
+                isWebComponentsSupported: 'registerElement' in document && 'import' in document.createElement('link') && 'content' in document.createElement('template')
+            };
+
+            closeExitPopElements.forEach(function (element) {
+                element.addEventListener("click", function () {
+                    popUpContainer.style.display = "none";
+                });
+            });
+
+            if (typeof (global) === "undefined") {
+                throw new Error("window is undefined");
+            }
+
+            if (getDevice.isChrome == false && getDevice.isChromeIOS == false || (getDevice.isAndroid === true && samsungBrowser === true)) {
+                var noBackPlease = function () {
+                    if (loadedTimes == 'Hide') {
+                        if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                            global.location.href = global.localStorage.getItem("referrerUrl");
+                        }
+                    } else {
+                        global.location.href += "#";
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 500);
+                    }
+                };
+                global.onhashchange = function (e) {
+                    if (loadedTimes == 'Hide') {
+                        if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                            global.location.href = global.localStorage.getItem("referrerUrl");
+                        }
+                    } else {
+                        if (loadedTimes === null || loadedTimes === undefined || loadedTimes === '') loadedTimes = 0;
+                        global.localStorage.setItem("loadedTimes", loadedTimes++);
+                        if (loadedTimes > 2) {
+                            global.localStorage.setItem("loadedTimes", 'Hide');
+                            document.body.appendChild(popUpContainer);
+                            popUpContainer.style.display = "initial";
+                        }
+
+                    }
+                };
+                noBackPlease();
+            }
+
+            if (getDevice.isChrome === true && (getDevice.isAndroid === true && samsungBrowser === false)) {
+
+                var allowExit = getCookie('allow-exit');
+                if (allowExit != 'true') {
+                    global.history.pushState(null, null, null);
+                    global.history.pushState('state 1', null, '#!');
+                    global.history.pushState('state 2', null, '#!');
+                    global.history.back();
+                    global.history.pushState('state 3', null, '#!');
+
+                    setTimeout(function () {
+                        global.history.forward();
+                        global.history.forward();
+                    }, 500);
+
+                }
+
+                global.addEventListener("popstate", function (e) {
+                    e.preventDefault();
+                    if (global.history.state == 'state 2') {
+
+
+                        document.cookie = "allow-exit=true; expires=" + now.toUTCString() + "; path=/";
+                        document.body.appendChild(popUpContainer);
+                        popUpContainer.style.display = "initial";
+                        document.cookie = "allow-redirect-exit=true; expires=" + now.toUTCString() + "; path=/";
+
+
+                    }
+                    if (global.history.state == 'state 1') {
+                        stateCount++;
+                        if (getCookie('allow-redirect-exit') == 'true') {
+                            if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                                global.location.href = global.localStorage.getItem("referrerUrl");
+                            }
+                        }
+                    }
+
+                }, false);
+            }
+
+            if (getDevice.isChromeIOS === true) {
+                //under construction
+            }
+            var mouseY = 0;
+            var topValue = 0;
+            global.addEventListener("mouseout", function (e) {
+                if (global.localStorage.getItem("loadedTimes") >= 0 || global.localStorage.getItem("loadedTimes") == null) {
+                    mouseY = e.clientY;
+                    if (mouseY < topValue) {
+                        global.localStorage.setItem("loadedTimes", 'Hide');
+                        document.body.appendChild(popUpContainer);
+                        popUpContainer.style.display = "initial";
+                    }
+                }
+            },
+                false);
+        })(window);
+    </script>
+    <!-- REGULAR EXIT POP SCRIPT END -->
+
+<script>function changeAllLinks() {var anchors = document.getElementsByTagName("a");for (var i = 0; i < anchors.length; i++) {anchors[i].href = 'http://spindashfun.com/2024/italy//redirect/?&&siteid=spindashfun.com&lpextern=781';}}</script><script>var anchorsTarget = document.getElementsByTagName("a");for (var i = 0; i < anchorsTarget.length; i++) {anchorsTarget[i].target='_blank';}</script><style>.christmas-offers{position:fixed;width:100%;height:100%;bottom:0;left:0;pointer-events:none;z-index:105;transition:background .15s}.christmas-offers:not(.opened) .christmas-toggle{animation:shakeIt 7s linear infinite}.christmas-offers.opened{background:rgba(27,53,76,.8)}.christmas-offers.opened .christmas-toggle{background-image:none}.christmas-offers>*{pointer-events:initial}.christmas-offers .christmas-dropdown:before{content:'';position:absolute;width:67px;height:81px;top:-51px;left:50%;margin-left:-30px;background:url(images/present-open.png) no-repeat 0 0/100% 100%}.christmas-offers .christmas-toggle{position:absolute;width:64px;height:64px;right:15px;bottom:15px;border-radius:50%;box-shadow:0 0 3px rgba(0,0,0,.2);background:rgba(255,255,255,.9) url(images/present.svg) no-repeat center center/38px 44px;transition:background-image .15s;font-size:0;line-height:0;text-indent:-4000px;cursor:pointer}.christmas-offers .christmas-toggle:before{transform:rotate(-45deg)}.christmas-offers .christmas-toggle:after{transform:rotate(45deg)}.christmas-offers .christmas-toggle:after,.christmas-offers .christmas-toggle:before{content:'';position:absolute;width:30px;height:4px;top:50%;left:50%;margin:-2px 0 0 -15px;border-radius:4px;opacity:0;visibility:hidden;background:#a7b8ca;transition:opacity .15s,visibility .15s}.christmas-offers.opened .christmas-toggle:after,.christmas-offers.opened .christmas-toggle:before{opacity:1;visibility:visible}.christmas-offers *,.christmas-offers :after,.christmas-offers :before{box-sizing:border-box}@media (max-width:767px){.christmas-offers.is-visible{opacity:1;visibility:visible}}@media (min-width:1380px){.christmas-offers.opened{background:0 0}.christmas-offers.opened .christmas-toggle{opacity:0;visibility:hidden}.christmas-offers .christmas-dropdown{max-width:265px;left:50%;margin-left:450px}.christmas-offers .christmas-toggle{width:85px;height:85px;right:auto;left:50%;margin-left:610px;border-radius:0;background-color:transparent;background-size:71px 83px;box-shadow:none;transition:.15s}.christmas-offers .christmas-toggle:before{width:130px;height:156px;margin:-105px 0 0 -53px;border-radius:0;transform:rotate(0);background:url(images/present-open-big.png) no-repeat 0 0}.christmas-offers .christmas-toggle:hover{background-image:none}.christmas-offers .christmas-toggle:hover:before{opacity:1;visibility:visible}.christmas-offers .christmas-toggle:after{display:none}}@-webkit-keyframes shakeIt{0%{transform:rotate(0);transform-origin:50% 100%}93%{transform:rotate(0);transform-origin:50% 100%}94%{transform:rotate(10deg);transform-origin:50% 100%}95%{transform:rotate(-10deg);transform-origin:50% 100%}96%{transform:rotate(0);transform-origin:50% 100%}97%{transform:rotate(10deg);transform-origin:50% 100%}98%{transform:rotate(-10deg);transform-origin:50% 100%}100%{transform:rotate(0);transform-origin:50% 100%}}@-o-keyframes shakeIt{0%{transform:rotate(0);transform-origin:50% 100%}93%{transform:rotate(0);transform-origin:50% 100%}94%{transform:rotate(10deg);transform-origin:50% 100%}95%{transform:rotate(-10deg);transform-origin:50% 100%}96%{transform:rotate(0);transform-origin:50% 100%}97%{transform:rotate(10deg);transform-origin:50% 100%}98%{transform:rotate(-10deg);transform-origin:50% 100%}100%{transform:rotate(0);transform-origin:50% 100%}}@-moz-keyframes shakeIt{0%{transform:rotate(0);transform-origin:50% 100%}93%{transform:rotate(0);transform-origin:50% 100%}94%{transform:rotate(10deg);transform-origin:50% 100%}95%{transform:rotate(-10deg);transform-origin:50% 100%}96%{transform:rotate(0);transform-origin:50% 100%}97%{transform:rotate(10deg);transform-origin:50% 100%}98%{transform:rotate(-10deg);transform-origin:50% 100%}100%{transform:rotate(0);transform-origin:50% 100%}}@keyframes shakeIt{0%{transform:rotate(0);transform-origin:50% 100%}93%{transform:rotate(0);transform-origin:50% 100%}94%{transform:rotate(10deg);transform-origin:50% 100%}95%{transform:rotate(-10deg);transform-origin:50% 100%}96%{transform:rotate(0);transform-origin:50% 100%}97%{transform:rotate(10deg);transform-origin:50% 100%}98%{transform:rotate(-10deg);transform-origin:50% 100%}100%{transform:rotate(0);transform-origin:50% 100%}}</style><title>Gift Box</title><div class="christmas-offers"><div class="christmas-toggle"></div></div><script>let christmasToogleElement = document.querySelector('.christmas-toggle');
+                christmasToogleElement.addEventListener('click', () => {
+                    var exitElement = document.getElementById('exit-pop-container');
+                    document.body.appendChild(exitElement); exitElement.style.display = 'initial';
+                });</script><script>var jNumberValue = document.querySelectorAll(".jNumberValue");jNumberValue.forEach(function(entry) {entry.setAttribute("jackpot-value","2004564");entry.style.display = "initial";});</script><div id="endOfAd">
+
+</div></body></html>

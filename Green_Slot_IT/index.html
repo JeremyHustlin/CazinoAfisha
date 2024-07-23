@@ -1,0 +1,1763 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta content="noindex, nofollow" name="robots">
+<meta content="WordPress 5.8.4" name="generator">
+<meta content="noindex" name="robots">
+<meta content="noindex" name="googlebot">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Fruit Slots</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
+
+    <style>
+        @font-face {
+            font-family: 'Autumn';
+            src: url("fonts/Autumn.ttf");
+            font-weight: bold;
+            font-style: normal
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Autumn';
+            background-image: url('images/background.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            line-height: 1;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            padding: 20px 0 0;
+        }
+
+        .header .header__content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            max-width: 828px;
+            height: 228px;
+            margin: 0 auto;
+        }
+
+        .header .header__content .header__sprite {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 828px;
+            height: 228px;
+        }
+
+        .header .header__content h1 {
+            text-transform: uppercase;
+            font-size: 48px;
+            letter-spacing: 2px;
+            text-align: center;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+        }
+
+        .header .header__content .h1-m {
+            display: none;
+        }
+
+        .header .header__content h2 {
+            font-size: 38px;
+            text-align: center;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #000000;
+            -webkit-text-stroke: 2px #00dd06;
+            letter-spacing: 2px;
+            text-shadow: none;
+        }
+
+        .header .header__content span {
+            font-size: 38px;
+            color: rgb(242, 203, 255);
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .main {
+            padding: 5% 0 7%;
+            overflow: hidden;
+            scale: 1.2;
+        }
+
+        @media(max-width: 2399.98px) {
+            .main {
+                padding: 1% 0 7%;
+                scale: 1;
+            }
+        }
+
+        .game {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        .game::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('images/reels_sym_retouch.png');
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .game canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .game .canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .game .ctx__machine {
+            z-index: -1;
+        }
+
+        .game .game__items {
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+            width: 60%;
+            margin: 0 auto;
+            height: 184px;
+            position: absolute;
+            left: 50%;
+            top: 141px;
+            transform: translateX(-50%);
+            transition: 0.1s;
+        }
+
+        .game .game__item {
+            display: flex;
+            display: -webkit-flex;
+            background-size: 100%;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            background: url('images/symbols_sprite.png') top repeat-y;
+            background-size: 120px;
+        }
+
+        .game .game__item_1 {
+            background-position: center -45px;
+        }
+
+        .game .game__item_2 {
+            background-position: center 45px;
+        }
+
+        .game .game__item_3 {
+            background-position: center 588px;
+        }
+
+        .game.spinning .game__item_1 {
+            -webkit-animation: moveItem1 5.5s ease-out forwards;
+            animation: moveItem1 5.5s ease-out forwards;
+        }
+
+        .game.spinning .game__item_2 {
+            -webkit-animation: moveItem2 6s ease-out forwards;
+            animation: moveItem2 6s ease-out forwards;
+        }
+
+        .game.spinning .game__item_3 {
+            -webkit-animation: moveItem3 6.5s ease-out forwards;
+            animation: moveItem3 6.5s ease-out forwards;
+        }
+
+        @-webkit-keyframes moveItem1 {
+            to {
+                background-position-y: 4005px;
+            }
+        }
+
+        @keyframes moveItem1 {
+            to {
+                background-position-y: 4005px;
+            }
+        }
+
+        @-webkit-keyframes moveItem2 {
+            to {
+                background-position-y: -4365px;
+            }
+        }
+
+        @keyframes moveItem2 {
+            to {
+                background-position-y: -4365px;
+            }
+        }
+
+        @-webkit-keyframes moveItem3 {
+            to {
+                background-position-y: 5085px;
+            }
+        }
+
+        @keyframes moveItem3 {
+            to {
+                background-position-y: 5085px;
+            }
+        }
+
+        .game.winner .game__items {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .game .game__handle {
+            width: 120px;
+            height: 600px;
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            display: block;
+        }
+
+        .game .game__handle.disabled {
+            pointer-events: none;
+        }
+
+        .game .game__arrow {
+            display: block;
+            position: absolute;
+            top: 30px;
+            right: -140px;
+            width: 188px;
+            height: 188px;
+            transition: 0.2s;
+        }
+
+        .game.spinning .game__arrow {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .footer__content {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .footer__content a,
+        .footer__content span {
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .footer__content span {
+            display: block;
+            margin: 0 5px;
+        }
+
+        .popup {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: all 0.3s ease-out;
+            z-index: 999;
+        }
+
+        .popup::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('images/falling_banknotes.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            overflow: hidden;
+            transition: 2s;
+        }
+
+        .popup.show::after {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .popup.show {
+            visibility: visible;
+        }
+
+        .popup .popup__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            margin: auto;
+            background-image: url('images/popup_quiz.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 500px;
+            width: 100%;
+            height: 100%;
+            max-height: 608px;
+            transform: translateY(-100%);
+            -webkit-transition: 0.6s;
+            transition: 0.6s;
+        }
+
+        .popup.show .popup__content {
+            transform: translateY(-50%);
+            top: 50%;
+        }
+
+        .popup .popup__btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            max-width: 394px;
+            max-height: 135px;
+            cursor: pointer;
+        }
+
+        .popup__winner .popup__btn {
+            margin-top: 20px;
+        }
+
+        .popup .popup__btn img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            transition: all 0.3s;
+        }
+
+        .popup .popup__btn .popup__btn_hover {
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .popup .popup__btn:hover .popup__btn_hover {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .popup .popup__content h1 {
+            font-size: 125px;
+            color: #ffffff;
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .popup .popup__content h2 {
+            font-size: 36px;
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            text-transform: uppercase;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        .popup .popup__content h3 {
+            color: #ffffff;
+            font-size: 42px;
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .popup__congrats .popup__content h3 {
+            margin-top: 30px;
+        }
+
+        .popup__answers .popup__content h3 {
+            font-size: 48px;
+            margin-top: 35px;
+        }
+
+        .popup__winner  .popup__content {
+            justify-content: center;
+        }
+
+        .popup .popup__content h4 {
+            color: #ffffff;
+            font-size: 28px;
+            margin: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0px 0px 40px rgba(0, 209, 6, 0.6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #f2cbff;
+            -webkit-text-stroke: 1px rgb(0, 221, 6, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .popup__winner .popup__content h4 {
+            margin: 35px 0 10px;
+            line-height: 36px;
+        }
+
+        .popup .popup__text {
+            margin: 20px 0 0;
+        }
+
+        .popup .popup__content p {
+            font-size: 28px;
+            line-height: 32px;
+            text-align: center;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        .popup .popup__question {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup .popup__text_answer {
+            margin: 35px 0 50px;
+        }
+
+        .popup .popup__text_answer p {
+            color: #b5f4a7;
+        }
+
+        .popup .popup__answers {
+            display: flex;
+            flex-direction: column;
+            grid-row-gap: 12px;
+            width: 100%;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .popup .popup__answers .btn--answer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            border-radius: 24px;
+            font-size: 24px;
+            color: #00dd06;
+            text-transform: uppercase;
+            background: #000000;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .popup .popup__answers .btn--answer:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        .loader img {
+            max-width: 100%;
+        }
+
+        @media(max-width: 767px) {
+            body {
+                background-image: url('images/m_background_414.jpg');
+                background-size: 100% 815px;
+                background-position: top;
+            }
+            .main {
+                padding: 7% 0 32%;
+            }
+            .game {
+                margin: 0 -15px;
+                max-width: 405px;
+                width: -webkit-fill-available;
+                height: 357px;
+            }
+            .game .game__items {
+                left: 50%;
+                top: 84px;
+                height: 109px;
+            }
+            .game .game__item {
+                background-size: 75px;
+            }
+            .game .game__handle {
+                width: 70px;
+                height: 357px;
+            }
+            .header .header__content h1 {
+                display: none;
+            }
+            .header .header__content .h1-m {
+                display: block;
+                font-size: 30px;
+                line-height: 32px;
+            }
+            .header .header__content h2 {
+                font-size: 26px;
+                -webkit-text-stroke: 1px #00dd06;
+                letter-spacing: 1px;
+                padding: 0 10px;
+            }
+            .header .header__content span {
+                font-size: 26px;
+            }
+            .header .header__content {
+                height: 203px;
+                max-width: 400px;
+                padding: 0 20px;
+            }
+
+            .game .game__item_1 {
+                background-position: center -32px;
+            }
+
+            .game .game__item_2 {
+                background-position: center 24px;
+            }
+
+            .game .game__item_3 {
+                background-position: center 361px;
+            }
+
+            @keyframes play {
+                0% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                37.26% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                39.74% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                58.37% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                60.85% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                63.33% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                65.81% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                90.65% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                100% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+            }
+
+            @-webkit-keyframes play {
+                0% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                37.26% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                39.74% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                58.37% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                60.85% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                63.33% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                65.81% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+                90.65% {
+                    background-image: url("images/m_neon_frame_f2_360_.png");
+                }
+                100% {
+                    background-image: url("images/m_neon_frame_f1_360.png");
+                }
+            }
+
+            .game .game__arrow {
+                top: 15px;
+                right: -13px;
+                width: 90px;
+                height: 90px;
+                transform: rotate(315deg);
+            }
+
+            @-webkit-keyframes moveItem1 {
+                to {
+                    background-position-y: 3512px;
+                }
+            }
+
+            @keyframes moveItem1 {
+                to {
+                    background-position-y: 3512px;
+                }
+            }
+
+            @-webkit-keyframes moveItem2 {
+                to {
+                    background-position-y: -4476px;
+                }
+            }
+
+            @keyframes moveItem2 {
+                to {
+                    background-position-y: -4476px;
+                }
+            }
+
+            @-webkit-keyframes moveItem3 {
+                to {
+                    background-position-y: 4186px;
+                }
+            }
+
+            @keyframes moveItem3 {
+                to {
+                    background-position-y: 4186px;
+                }
+            }
+
+            .popup .popup__content {
+                background-size: contain;
+                max-height: 460px;
+            }
+
+            .popup .popup__content h1 {
+                font-size: 88px;
+            }
+
+            .popup .popup__content h2 {
+                font-size: 26px;
+            }
+
+            .popup .popup__content h4 {
+                font-size: 20px;
+            }
+
+            .popup .popup__content h3 {
+                font-size: 32px;
+                margin-top: 20px;
+            }
+
+            .popup .popup__content p {
+                font-size: 22px;
+                line-height: 26px;
+            }
+
+            .popup .popup__text {
+                margin: 10px 0 0;
+            }
+
+            .popup .popup__btn {
+                max-width: 290px;
+                max-height: 110px;
+            }
+
+            .popup .popup__answers .btn--answer {
+                height: 38px;
+                font-size: 20px;
+            }
+
+            .popup__answers .popup__content h3 {
+                font-size: 34px;
+                margin-top: 25px;
+            }
+
+            .popup .popup__text_answer {
+                margin: 25px 0 40px;
+            }
+
+            .popup__winner .popup__content h4 {
+                line-height: 26px;
+            }
+
+            .popup__winner .popup__content h4 {
+                margin: 20px 0 10px;
+            }
+
+            .popup__winner .popup__btn {
+                margin-top: 10px;
+            }
+        }
+
+        @media(min-width: 320px) and (max-width: 360px) {
+            body {
+                background-size: 100% 795px;
+            }
+            .header .header__content .h1-m {
+                font-size: 28px;
+                line-height: 30px;
+            }
+            .header .header__content h2 {
+                font-size: 24px;
+            }
+            .header .header__content span {
+                font-size: 24px;
+            }
+            .game {
+                height: 345px;
+            }
+            .game .game__items {
+                top: 81px;
+                height: 105px;
+            }
+            .game .game__handle {
+                width: 67px;
+                height: 345px;
+            }
+            .game .game__arrow {
+                width: 86px;
+                height: 86px;
+            }
+            .game .game__item_1 {
+                background-position: center -35px;
+            }
+            .game .game__item_2 {
+                background-position: center 21px;
+            }
+            .footer__content a, .footer__content span {
+                font-size: 12px;
+            }
+
+            @-webkit-keyframes moveItem1 {
+                to {
+                    background-position-y: 3509px;
+                }
+            }
+
+            @keyframes moveItem1 {
+                to {
+                    background-position-y: 3509px;
+                }
+            }
+
+            @-webkit-keyframes moveItem2 {
+                to {
+                    background-position-y: -4479px;
+                }
+            }
+
+            @keyframes moveItem2 {
+                to {
+                    background-position-y: -4479px;
+                }
+            }
+
+            @-webkit-keyframes moveItem3 {
+                to {
+                    background-position-y: 4184px;
+                }
+            }
+
+            @keyframes moveItem3 {
+                to {
+                    background-position-y: 4184px;
+                }
+            }
+        }
+
+        @media(max-width: 320px) {
+            body {
+                background-size: 100% 705px;
+            }
+            .header {
+                padding: 10px 0 0;
+            }
+            .header .header__content {
+                height: 185px;
+            }
+            .header .header__content .h1-m {
+                font-size: 26px;
+                line-height: 28px;
+            }
+            .header .header__content h2 {
+                font-size: 20px;
+            }
+            .header .header__content span {
+                font-size: 20px;
+            }
+            .game {
+                height: 309px;
+            }
+            .game .game__items {
+                top: 73px;
+                height: 93px;
+            }
+            .game .game__item {
+                background-size: 68px;
+            }
+            .game .game__item_2 {
+                background-position: center 19px;
+            }
+            .game .game__item_3 {
+                background-position: center 327px;
+            }
+            .game .game__handle {
+                width: 61px;
+                height: 309px;
+            }
+            .game .game__arrow {
+                right: -8px;
+                width: 75px;
+                height: 75px;
+            }
+            .popup .popup__content {
+                max-height: 360px;
+            }
+            .popup .popup__content h1 {
+                font-size: 66px;
+            }
+            .popup .popup__content h2 {
+                font-size: 26px;
+            }
+            .popup .popup__content h3 {
+                font-size: 26px;
+                margin-top: 10px;
+            }
+            .popup .popup__content h4 {
+                font-size: 18px;
+            }
+            .popup .popup__content p {
+                font-size: 18px;
+                line-height: 22px;
+            }
+            .popup .popup__text {
+                margin: 10px 0 0;
+            }
+            .popup .popup__btn {
+                max-width: 220px;
+            }
+
+            @-webkit-keyframes moveItem1 {
+                to {
+                    background-position-y: 3181px;
+                }
+            }
+
+            @keyframes moveItem1 {
+                to {
+                    background-position-y: 3181px;
+                }
+            }
+
+            @-webkit-keyframes moveItem2 {
+                to {
+                    background-position-y: -4571px;
+                }
+            }
+
+            @keyframes moveItem2 {
+                to {
+                    background-position-y: -4571px;
+                }
+            }
+
+            @-webkit-keyframes moveItem3 {
+                to {
+                    background-position-y: 3793px
+                }
+            }
+
+            @keyframes moveItem3 {
+                to {
+                    background-position-y: 3793px
+                }
+            }
+
+            .popup .popup__answers {
+                grid-row-gap: 10px;
+            }
+
+            .popup .popup__text_answer {
+                margin: 15px 0 20px;
+            }
+
+            .popup .popup__answers .btn--answer {
+                height: 36px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preloader">
+        <div class="loader">
+            <img src="images/lp_casino_list_loader_fs.gif" alt="">
+        </div>
+    </div>
+
+    
+
+    <section class="header">
+        <div class="containe">
+            <div class="header__content">
+                <canvas class="header__sprite" width="828" height="228"></canvas>
+                <h1>VINCI UN PREMIO ESCLUSIVO</h1>
+                <h1 class="h1-m">VINCI <br> UN PREMIO ESCLUSIVO</h1>
+                <h2>PREMERE <span>‘GIRA’</span> PER VEDERE SE SI VINCE!</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="container">
+            <div class="game">
+                <div class="game__items">
+                    <div class="game__item game__item_1"></div>
+                    <div class="game__item game__item_2"></div>
+                    <div class="game__item game__item_3"></div>
+                </div>
+                <canvas id="canvas-machine" class="canvas ctx__machine" width="680" height="600"></canvas>
+                <canvas id="canvas-lights" class="canvas" width="680" height="600"></canvas>
+                <canvas id="canvas-winner" class="canvas ctx__winner" width="680" height="600"></canvas>
+                <button class="game__handle" type="button"><canvas id="canvas-handle" width="120" height="600"></canvas></button>
+                <div class="game__arrow"><canvas id="canvas-arrow" width="188" height="188"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer__content">
+                <a href="https://www.google.com" target="_blank">Terms and conditions</a>
+                    <span>|</span>
+                <a href="https://www.google.com" target="_blank">Privacy policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup popup__congrats">
+        <div class="popup__content">
+            <h3>CONGRATULAZIONI!</h3>
+            <h4>HAI SBLOCCATO UN</h4>
+            <h2>BONUS DI BENVENUTO DA</h2>
+            <h1>500€</h1>
+            <h2 style="margin: 0;">+ 25 Giri Gratis</h2>
+            <div class="popup__text">
+                <p>RISPONDI A 3 DOMANDE VELOCI</p>
+                <p>PER RICHIEDERE IL TUO PREMIO</p>
+            </div>
+            <button class="popup__btn btn__next" type="button">
+                <img src="images/button_normal_txt_it.png" alt="">
+                <img class="popup__btn_hover" src="images/button_hover_txt_it.png" alt="">
+            </button>
+        </div>
+    </div>
+
+    <div class="popup popup__answers">
+        <div class="popup__content">
+            <div class="popup__question" id="question-1">
+                <h3>DOMANDA 1</h3>
+                <div class="popup__text_answer">
+                    <p>QUANTO SPESSO GIOCHI AI GIOCHI DEL CASINÒ?</p>
+                </div>
+                <ul class="popup__answers">
+                    <li class="btn--answer btn--answer-1">QUOTIDIANO</li>
+                    <li class="btn--answer btn--answer-1">SETTIMANALMENTE</li>
+                    <li class="btn--answer btn--answer-1">NON COSÌ SPESSO</li>
+                    <li class="btn--answer btn--answer-1">MAI GIOCATO PRIMA</li>
+                </ul>
+            </div>
+            <div class="popup__question" id="question-2" style="display: none;">
+                <h3>DOMANDA 2</h3>
+                <div class="popup__text_answer">
+                    <p>DOVE GIOCATE NORMALMENTE AI GIOCHI DA CASINÒ?</p>
+                </div>
+                <ul class="popup__answers">
+                    <li class="btn--answer btn--answer-2">CASINÒ IN LINEA</li>
+                    <li class="btn--answer btn--answer-2">CASINÒ OFFLINE</li>
+                    <li class="btn--answer btn--answer-2">ENTRAMBI</li>
+                </ul>
+                <div class="popup__circles">
+                    <div class="popup__circle"></div>
+                    <div class="popup__circle active"></div>
+                    <div class="popup__circle"></div>
+                </div>
+            </div>
+            <div class="popup__question" id="question-3" style="display: none;">
+                <h3>DOMANDA 3</h3>
+                <div class="popup__text_answer">
+                    <p>A CHE TIPO DI GIOCHI?</p>
+                </div>
+                <ul class="popup__answers">
+                    <li class="btn--answer btn--answer-3">SLOT</li>
+                    <li class="btn--answer btn--answer-3">DA TAVOLO E RIVENDITORE DAL VIVO</li>
+                    <li class="btn--answer btn--answer-3">ENTRAMBI</li>
+                    <li class="btn--answer btn--answer-3">ALTRO</li>
+                </ul>
+                <div class="popup__circles">
+                    <div class="popup__circle"></div>
+                    <div class="popup__circle"></div>
+                    <div class="popup__circle active"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup__winner">
+        <div class="popup__content">
+            <h3>CONGRATULAZIONI!</h3>
+            <h4>HAI SBLOCCATO <br> UN PREMIO ESCLUSIVO!</h4>
+            <h1>500€</h1>
+            <h2 style="margin: 0;">+ 25 Giri Gratis</h2>
+            <a class="popup__btn btn__claim" href="https://www.google.com" target="_blank">
+                <img src="images/button_normal_claim_it.png" alt="">
+                <img class="popup__btn_hover" src="images/button_hover_claim_it.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    
+    <script>
+        const oBody = document.querySelector("body");
+        oBody.classList.add('show');
+
+        function deletePreloader() {
+            const e = document.querySelector("body"),
+                o = document.querySelector(".preloader");
+
+            setTimeout(()=>{
+                e.removeChild(o);
+                e.classList.remove('show');
+            }, 1000);
+        }
+
+        deletePreloader();
+
+        // header animate canvas
+        const canvasHeader = document.querySelector('.header__sprite');
+        const ctxHeader = canvasHeader.getContext('2d');
+        const playerStateHeader = "standby";
+        let gameFrameHeader = 0;
+        const staggerFramesHeader = 20;
+        const spriteAnimationsHeader = {};
+
+        const animationStatesHeader = [
+            {
+                name: 'standby',
+                frames: 2
+            }
+        ];
+
+        function initializeCanvas(width, height, imageUrl) {
+            canvasHeader.width = width;
+            canvasHeader.height = height;
+
+            const playerImageHeader = new Image();
+            playerImageHeader.src = imageUrl;
+
+            const spriteWidthHeader = width;
+            const spriteHeightHeader = height;
+
+            animationStatesHeader.forEach((state, index) => {
+                let frames = {
+                    loc: [],
+                };
+                for (let j = 0; j < state.frames; j++) {
+                    let positionX = j * spriteWidthHeader;
+                    let positionY = index * spriteHeightHeader;
+                    frames.loc.push({ x: positionX, y: positionY });
+                }
+                spriteAnimationsHeader[state.name] = frames;
+            });
+
+            function animateHeader() {
+                const CANVAS_WIDTH_HEADER = canvasHeader.width;
+                const CANVAS_HEIGHT_HEADER = canvasHeader.height;
+
+                ctxHeader.clearRect(0, 0, CANVAS_WIDTH_HEADER, CANVAS_HEIGHT_HEADER);
+                let position = Math.floor(gameFrameHeader / staggerFramesHeader) % spriteAnimationsHeader[playerStateHeader].loc.length;
+                let frameX = spriteWidthHeader * position;
+                let frameY = spriteAnimationsHeader[playerStateHeader].loc[position].y;
+
+                ctxHeader.drawImage(playerImageHeader, frameX, frameY, spriteWidthHeader, spriteHeightHeader, 0, 0, spriteWidthHeader, spriteHeightHeader);
+
+                gameFrameHeader++;
+                requestAnimationFrame(animateHeader);
+            }
+
+            animateHeader();
+        }
+
+        if (window.screen.width <= 767) {
+            initializeCanvas(360, 203, 'images/m_neon_frame_sprite.png');
+        } else {
+            initializeCanvas(828, 228, 'images/neon_frame_sprite.png');
+        }
+
+        const canvasMachine = document.getElementById('canvas-machine');
+        const canvasLights = document.getElementById('canvas-lights');
+        const canvasHandle = document.getElementById('canvas-handle');
+        const canvasArrow = document.getElementById('canvas-arrow');
+        const canvasWinner = document.getElementById('canvas-winner');
+
+        const ctxMachine = canvasMachine.getContext('2d');
+        const ctxLights = canvasLights.getContext('2d');
+        const ctxHandle = canvasHandle.getContext('2d');
+        const ctxArrow = canvasArrow.getContext('2d');
+        const ctxWinner = canvasWinner.getContext('2d');
+
+        const CANVAS_WIDTH_MACHINE = canvasMachine.width = 680;
+        const CANVAS_HEIGHT_MACHINE = canvasMachine.height = 600;
+
+        const CANVAS_WIDTH_LIGHT = canvasLights.width = 680;
+        const CANVAS_HEIGHT_LIGHT = canvasLights.height = 600;
+
+        const CANVAS_WIDTH_HANDLE = canvasHandle.width = 120;
+        const CANVAS_HEIGHT_HANDLE = canvasHandle.height = 600;
+
+        const CANVAS_WIDTH_ARROW = canvasArrow.width = 188;
+        const CANVAS_HEIGHT_ARROW = canvasArrow.height = 188;
+
+        const CANVAS_WIDTH_WINNER = canvasWinner.width = 680;
+        const CANVAS_HEIGHT_WINNER = canvasWinner.height = 600;
+
+        const playerImageMachine = new Image();
+        playerImageMachine.src = 'images/slot_machine_sprite_it.png';
+
+        const playerImageLights = new Image();
+        playerImageLights.src = 'images/lights_sprite.png';
+        
+        const playerImageHandle = new Image();
+        playerImageHandle.src = 'images/handle_sprite.png';
+
+        const playerImageArrow = new Image();
+        playerImageArrow.src = 'images/spin_arrow_sprite_it.png';
+
+        const playerImageWinner = new Image();
+        playerImageWinner.src = 'images/win_sprite_it.png';
+
+        const spriteWidth = 680;
+        const spriteHeight = 600;
+
+        const spriteWidthHandle = 120;
+        const spriteHeightHandle = 600;
+
+        const spriteWidthArrow = 188;
+        const spriteHeightArrow = 188;
+
+        let playerStateHandle = "standby";
+
+        let gameFrameMachine = 0;
+        let gameFrameLights = 0;
+        let gameFrameHandle = 0;
+        let gameFrameArrow = 0;
+        let gameFrameWinner = 0;
+
+        let staggerFramesMachine = 20;
+        let staggerFramesLights = 12;
+        let staggerFramesWinner = 20;
+        let staggerFramesHandle = 2;
+        let staggerFramesArrow = 2;
+
+        const spriteAnimationsHandle = [];
+
+        const animationStatesHandle = [
+            {
+                name: 'standby',
+                frames: 1
+            },
+            {
+                name: 'spin',
+                frames: 18
+            },
+        ];
+
+        animationStatesHandle.forEach((state, index) => {
+            let frames = {
+                loc: [],
+            }
+            for (let j = 0; j < state.frames; j++) {
+                let positionX = j * spriteWidthHandle;
+                let positionY = index * spriteHeightHandle;
+                frames.loc.push({x: positionX, y: positionY});
+            }
+            spriteAnimationsHandle[state.name] = frames;
+        });
+
+        function animateMachine() {
+            ctxMachine.clearRect(0, 0, CANVAS_WIDTH_MACHINE, CANVAS_HEIGHT_MACHINE);
+            let position = Math.floor(gameFrameMachine/staggerFramesMachine) % 2;
+            let frameX = spriteWidth * position;
+            let frameY = 0;
+            
+            ctxMachine.drawImage(playerImageMachine, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+
+            gameFrameMachine++;
+            requestAnimationFrame(animateMachine);
+        }
+
+        function animateLights() {
+            ctxLights.clearRect(0, 0, CANVAS_WIDTH_LIGHT, CANVAS_HEIGHT_LIGHT);
+            let position = Math.floor(gameFrameLights/staggerFramesLights) % 3;
+            let frameX = spriteWidth * position;
+            let frameY = 0;
+            
+            ctxLights.drawImage(playerImageLights, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+
+            gameFrameLights++;
+            requestAnimationFrame(animateLights);
+        }
+
+        function animateWinner() {
+            ctxLights.clearRect(0, 0, CANVAS_WIDTH_WINNER, CANVAS_HEIGHT_WINNER);
+            let position = Math.floor(gameFrameWinner/staggerFramesWinner) % 2;
+            let frameX = spriteWidth * position;
+            let frameY = 0;
+            
+            ctxLights.drawImage(playerImageWinner, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+
+            gameFrameWinner++;
+            requestAnimationFrame(animateWinner);
+        }
+
+        function animateArrow() {
+            ctxArrow.clearRect(0, 0, CANVAS_WIDTH_ARROW, CANVAS_HEIGHT_ARROW);
+            let position = Math.floor(gameFrameArrow/staggerFramesArrow) % 18;
+            let frameX = spriteWidthArrow * position;
+            let frameY = 0;
+            
+            ctxArrow.drawImage(playerImageArrow, frameX, frameY, spriteWidthArrow, spriteHeightArrow, 0, 0, spriteWidthArrow, spriteHeightArrow);
+
+            gameFrameArrow++;
+            requestAnimationFrame(animateArrow);
+        }
+
+        function animateHandle() {
+            ctxHandle.clearRect(0, 0, CANVAS_WIDTH_HANDLE, CANVAS_HEIGHT_HANDLE);
+
+            if(playerStateHandle == "standby") {
+                ctxHandle.drawImage(playerImageHandle, 0, 0, spriteWidthHandle, spriteHeightHandle, 0, 0, spriteWidthHandle, spriteHeightHandle);
+            } else if(playerStateHandle == "spin") {
+                let position = Math.floor(gameFrameHandle/staggerFramesHandle) % spriteAnimationsHandle[playerStateHandle].loc.length;
+                let frameX = spriteWidthHandle * position;
+                let frameY = spriteAnimationsHandle[playerStateHandle].loc[position].y;
+                ctxHandle.drawImage(playerImageHandle, frameX, frameY, spriteWidthHandle, spriteHeightHandle, 0, 0, spriteWidthHandle, spriteHeightHandle);
+                gameFrameHandle++;
+            }
+            
+            requestAnimationFrame(animateHandle);
+        }
+
+        animateMachine();
+        animateLights();
+        animateHandle();
+        animateArrow();
+        
+        const btnSpin = document.querySelector('.game__handle');
+        const gameBlock = document.querySelector('.game');
+        const popupCongrats = document.querySelector('.popup__congrats');
+
+        btnSpin.addEventListener("click", () => {
+            btnSpin.classList.add('disabled');
+            playerStateHandle = "spin";
+
+            setTimeout(() =>{
+                playerStateHandle = "standby";
+            }, 600);
+
+            setTimeout(() => {
+                gameBlock.classList.add('spinning');
+            }, 400)
+
+            setTimeout(() => {
+                gameBlock.classList.add('winner');
+                animateWinner();
+                setTimeout(() => {
+                    startQuiz();
+                }, 2500);
+            }, 6800);
+        });
+
+        function startQuiz() {
+            document.body.className = 'popup__open';
+            $(".popup__congrats").addClass("show");
+
+            $(".btn__next").click(function () {
+                $(".popup__congrats").removeClass("show");
+                $(".popup__answers").addClass("show");
+
+                $(".btn--answer-1").click(function () {
+                    $("#question-1").fadeOut(0);
+                    $("#question-2").fadeIn(500);
+                });
+
+                $(".btn--answer-2").click(function () {
+                    $("#question-2").fadeOut(0);
+                    $("#question-3").fadeIn(500);
+                });
+
+                $(".btn--answer-3").click(function () {
+                    $(".popup__answers ").removeClass("show");
+                    $(".popup__winner").addClass("show"); 
+                });
+            });
+        }
+    </script>
+
+    <script src="js/currency.js"></script>
+    <script src="js/jscripts-public-v15.js"></script>
+
+    <!-- NEW DESIGN -->
+    <style>
+        #exit-pop-container {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+            background: rgba(0, 0, 0, .7);
+            overflow: hidden
+        }
+
+        #exit-pop-container .content-exit_pop .closer {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            cursor: pointer
+        }
+
+        .content-exit_pop {
+            width: 500px;
+            height: 500px;
+            background-color: #2a4853;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .content-exit_pop .item {
+            text-align: center;
+            display: flex;
+            flex-direction: column
+        }
+
+        .content-exit_pop .item h1 {
+            color: #ffd428;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 38px;
+            font-weight: 600
+        }
+
+        .content-exit_pop .item a {
+            color: #000;
+            display: block;
+            min-width: 270px;
+            height: 82px;
+            font-size: 46px;
+            line-height: 82px;
+            padding: 0 20px;
+            background-color: #ffd428;
+            text-decoration: none;
+            margin: 0 auto;
+            font-weight: 600
+        }
+
+        .content-exit_pop .item .img_item {
+            margin: 35px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .content-exit_pop .item .img_item img {
+            max-width: 100%
+        }
+
+        .content-exit_pop .item .img_item .jackpot-item-new {
+            display: flex;
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: 700
+        }
+
+        .text-uppercase {
+            text-transform: uppercase
+        }
+
+        @media (max-width:767px) {
+            .content-exit_pop {
+                width: unset;
+                height: 400px;
+                margin: auto 15px
+            }
+
+            .content-exit_pop .item .img_item .jackpot-item-new {
+                color: #fff;
+                bottom: 16px;
+                font-size: 32px
+            }
+
+            .content-exit_pop .item .img_item img {
+                width: 300px
+            }
+
+            .content-exit_pop .item h1 {
+                font-size: 26px;
+                line-height: 32px
+            }
+
+            .content-exit_pop .item a {
+                min-width: 210px;
+                height: 65px;
+                font-size: 30px;
+                line-height: 67px
+            }
+        }
+
+        @media (max-width:320px) {
+            .content-exit_pop .item a {
+                min-width: 210px;
+                height: 55px;
+                line-height: 57px;
+                font-size: 24px;
+            }
+
+            .content-exit_pop {
+                height: 350px
+            }
+
+            .content-exit_pop .item .img_item img {
+                width: 250px
+            }
+
+            .content-exit_pop .item .img_item .jackpot-item-new {
+                bottom: 14px;
+                font-size: 26px
+            }
+
+            .content-exit_pop .item h1 {
+                font-size: 22px;
+                line-height: 28px
+            }
+        }
+    </style>
+
+    <div id="exit-pop-container">
+        <div class="content-exit_pop">
+            <span class="closer">
+                <img src="images/close_x.png" alt="">
+            </span>
+            <div class="item">
+                <h1>VUOI AVERE LA POSSIBILITÀ <br> DI VINCERE QUESTO PREMIO?</h1>
+                <div class="img_item">
+                    <img src="images/jackpot_.png" alt="">
+                    <div class="jackpot-item-new">
+                        3 Milioni di Euro
+                    </div>
+                </div>
+                <a exit-pop="" class="text-uppercase" href="https://www.google.com" target="_blank">
+                    SÌ </a>
+            </div>
+        </div>
+    </div>
+    <!-- NEW DESIGN END -->
+
+    <!-- REGULAR EXIT POP SCRIPT -->
+    <script>
+        (function (global) {
+
+            var now = new Date();
+            var minutes = 1;
+            now.setTime(now.getTime() + (minutes * 60 * 1000));
+
+            var browserAgent = window.navigator.userAgent;
+            var samsungBrowser;
+
+
+            if (browserAgent.toLowerCase().indexOf("samsungbrowser") !== -1) {
+                samsungBrowser = true;
+            } else {
+                samsungBrowser = false;
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            global.localStorage.setItem("loadedTimes", 0);
+            global.localStorage.setItem("referrerUrl", global.document.referrer);
+
+            document.cookie = "allow-redirect-exit=false; path=/";
+
+            var stateCount = 1;
+            var loadedTimes = global.localStorage.getItem("loadedTimes");
+            var popUpContainer = document.getElementById("exit-pop-container");
+            var closeExitPopElements = document.querySelectorAll(".closer");
+            var getDevice = {
+                isAndroid: /Android/.test(navigator.userAgent),
+                isCordova: !!window.cordova,
+                isEdge: /Edge/.test(navigator.userAgent),
+                isFirefox: /Firefox/.test(navigator.userAgent),
+                isChrome: /Google Inc/.test(navigator.vendor),
+                isChromeIOS: /CriOS/.test(navigator.userAgent),
+                isChromiumBased: !!window.chrome && !/Edge/.test(navigator.userAgent),
+                isIE: /Trident/.test(navigator.userAgent),
+                isIOS: /(iPhone|iPad|iPod)/.test(navigator.platform),
+                isOpera: /OPR/.test(navigator.userAgent),
+                isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
+                isTouchScreen: ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
+                isWebComponentsSupported: 'registerElement' in document && 'import' in document.createElement('link') && 'content' in document.createElement('template')
+            };
+
+            closeExitPopElements.forEach(function (element) {
+                element.addEventListener("click", function () {
+                    popUpContainer.style.display = "none";
+                });
+            });
+
+            if (typeof (global) === "undefined") {
+                throw new Error("window is undefined");
+            }
+
+            if (getDevice.isChrome == false && getDevice.isChromeIOS == false || (getDevice.isAndroid === true && samsungBrowser === true)) {
+                var noBackPlease = function () {
+                    if (loadedTimes == 'Hide') {
+                        if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                            global.location.href = global.localStorage.getItem("referrerUrl");
+                        }
+                    } else {
+                        global.location.href += "#";
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 500);
+                    }
+                };
+                global.onhashchange = function (e) {
+                    if (loadedTimes == 'Hide') {
+                        if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                            global.location.href = global.localStorage.getItem("referrerUrl");
+                        }
+                    } else {
+                        if (loadedTimes === null || loadedTimes === undefined || loadedTimes === '') loadedTimes = 0;
+                        global.localStorage.setItem("loadedTimes", loadedTimes++);
+                        if (loadedTimes > 2) {
+                            global.localStorage.setItem("loadedTimes", 'Hide');
+                            document.body.appendChild(popUpContainer);
+                            popUpContainer.style.display = "initial";
+                        }
+
+                    }
+                };
+                noBackPlease();
+            }
+
+            if (getDevice.isChrome === true && (getDevice.isAndroid === true && samsungBrowser === false)) {
+
+                var allowExit = getCookie('allow-exit');
+                if (allowExit != 'true') {
+                    global.history.pushState(null, null, null);
+                    global.history.pushState('state 1', null, '#!');
+                    global.history.pushState('state 2', null, '#!');
+                    global.history.back();
+                    global.history.pushState('state 3', null, '#!');
+
+                    setTimeout(function () {
+                        global.history.forward();
+                        global.history.forward();
+                    }, 500);
+
+                }
+
+                global.addEventListener("popstate", function (e) {
+                    e.preventDefault();
+                    if (global.history.state == 'state 2') {
+
+
+                        document.cookie = "allow-exit=true; expires=" + now.toUTCString() + "; path=/";
+                        document.body.appendChild(popUpContainer);
+                        popUpContainer.style.display = "initial";
+                        document.cookie = "allow-redirect-exit=true; expires=" + now.toUTCString() + "; path=/";
+
+
+                    }
+                    if (global.history.state == 'state 1') {
+                        stateCount++;
+                        if (getCookie('allow-redirect-exit') == 'true') {
+                            if (typeof (global.localStorage.getItem("referrerUrl")) !== "undefined" && global.localStorage.getItem("referrerUrl") != '') {
+                                global.location.href = global.localStorage.getItem("referrerUrl");
+                            }
+                        }
+                    }
+
+                }, false);
+            }
+
+            if (getDevice.isChromeIOS === true) {
+                //under construction
+            }
+            var mouseY = 0;
+            var topValue = 0;
+            global.addEventListener("mouseout", function (e) {
+                if (global.localStorage.getItem("loadedTimes") >= 0 || global.localStorage.getItem("loadedTimes") == null) {
+                    mouseY = e.clientY;
+                    if (mouseY < topValue) {
+                        global.localStorage.setItem("loadedTimes", 'Hide');
+                        document.body.appendChild(popUpContainer);
+                        popUpContainer.style.display = "initial";
+                    }
+                }
+            },
+                false);
+        })(window);
+    </script>
+    <!-- REGULAR EXIT POP SCRIPT END -->
+
+<script>function changeAllLinks() {var anchors = document.getElementsByTagName("a");for (var i = 0; i < anchors.length; i++) {anchors[i].href = 'https://www.google.com';}}</script><script>var anchorsTarget = document.getElementsByTagName("a");for (var i = 0; i < anchorsTarget.length; i++) {anchorsTarget[i].target='_blank';}</script><script>var jNumberValue = document.querySelectorAll(".jNumberValue");jNumberValue.forEach(function(entry) {entry.setAttribute("jackpot-value","3488162");entry.style.display = "initial";});</script><div id="endOfAd">
+
+</div></body></html>
